@@ -1,0 +1,4 @@
+/Volumes/External/Special Project/Special Project/obj/Debug/Assembly-CSharp.csproj.AssemblyReference.cache
+/Volumes/External/Special Project/Special Project/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
+/Volumes/External/Special Project/Special Project/obj/Debug/Assembly-CSharp.dll
+/Volumes/External/Special Project/Special Project/obj/Debug/Assembly-CSharp.pdb
