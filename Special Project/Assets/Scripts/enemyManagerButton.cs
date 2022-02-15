@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class enemyManagerButton : MonoBehaviour
 {
+
+    public GameObject walls;
+    private MoveWalls moveWallScript;
     public GameObject enemySpawner;
     private EnemyManager enemyManager;
 
@@ -18,7 +21,10 @@ public class enemyManagerButton : MonoBehaviour
     {
         if (other.tag == "Spell")
         {
-
+            moveWallScript = walls.GetComponent<MoveWalls>();
+            moveWallScript.timer = 0;
+            moveWallScript.buttonIsPressed = true;
+            Debug.Log("Stop Spawning");
             enemyManager = enemySpawner.GetComponent<EnemyManager>();
             enemyManager.canSpawn = false;
 
