@@ -16,9 +16,17 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthDisplay;
     public Slider slider;
 
+    //Scene Elements
+    public SceneChanger sceneChanger;
+    private GameObject[] DontDestroyOnLoadObjects;
+
+
+
     private void Awake()
     {
         playerHealthCurrent = playerHealthTotal;
+        DontDestroyOnLoadObjects = GetDontDestroyOnLoadObjects();
+        sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
     }
 
     private void Update()
@@ -47,6 +55,29 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        SceneManager.LoadScene("GameOverScene");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        //SceneManager.LoadScene("GameOverScene");
+        sceneChanger.LoadScene("GameOverScene");
+    }
+
+    public static GameObject[] GetDontDestroyOnLoadObjects()
+    {
+        GameObject temp = null;
+        try
+        {
+            temp = new GameObject();
+            Object.DontDestroyOnLoad(temp);
+            UnityEngine.SceneManagement.Scene dontDestroyOnLoad = temp.scene;
+            Object.DestroyImmediate(temp);
+            temp = null;
+
+            return dontDestroyOnLoad.GetRootGameObjects();
+        }
+        finally
+        {
+            if (temp != null)
+                Object.DestroyImmediate(temp);
+        }
     }
 }
