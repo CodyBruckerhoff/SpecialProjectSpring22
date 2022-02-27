@@ -9,6 +9,7 @@ TagManager:
   - EnemySpell
   - SpiderEnemy
   - Items
+  - Boss
   layers:
   - Default
   - TransparentFX

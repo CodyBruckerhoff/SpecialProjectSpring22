@@ -10,7 +10,7 @@ public class enemyManagerButton : MonoBehaviour
     public GameObject enemySpawner;
     private EnemyManager enemyManager;
 
-    private bool isPressed;
+    public bool isPressed;
 
     void start()
     {
@@ -21,6 +21,7 @@ public class enemyManagerButton : MonoBehaviour
     {
         if (other.tag == "Spell")
         {
+            isPressed = true;
             moveWallScript = walls.GetComponent<MoveWalls>();
             moveWallScript.timer = 0;
             moveWallScript.buttonIsPressed = true;

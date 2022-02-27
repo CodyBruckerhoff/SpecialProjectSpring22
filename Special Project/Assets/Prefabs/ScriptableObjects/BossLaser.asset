@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0600ef15b29c54889b181f7b916b3968, type: 3}
+  m_Name: BossLaser
+  m_EditorClassIdentifier: 
+  spellMesh: {fileID: 8991636414873548654, guid: de5f89287c6d4a740acc4f1dfeb1b2f3, type: 3}
+  spellName: Boss Laser
+  damage: 5
+  manaCost: 5
+  forwardForce: 100
+  upwardForce: 0
+  coolDown: 2
+  timeBetweenCasts: 2
+  timeBetweenCasting: 2

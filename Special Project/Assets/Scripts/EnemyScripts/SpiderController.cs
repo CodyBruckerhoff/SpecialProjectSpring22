@@ -82,7 +82,9 @@ public class SpiderController : MonoBehaviour
         //agent.SetDestination(transform.position);
 
 
-        transform.LookAt(player);
+        Vector3 targetPosition = new Vector3(player.position.x, this.transform.position.y, player.position.z);
+
+        this.transform.LookAt(targetPosition);
 
         if (!alreadyAttacked)
         {

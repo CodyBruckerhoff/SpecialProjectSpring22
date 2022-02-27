@@ -27,6 +27,11 @@ public class CollisionDetection : MonoBehaviour
             DestroyProjectile();
 
         }
+        else if (collision.collider.CompareTag("Boss"))
+        {
+            collision.collider.gameObject.GetComponent<BossController>().TakeDamage(spell.damage);
+            DestroyProjectile();
+        }
 
     }
 

@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerHealthCurrent = playerHealthTotal;
         DontDestroyOnLoadObjects = GetDontDestroyOnLoadObjects();
-        sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
+        //sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
     }
 
     private void Update()

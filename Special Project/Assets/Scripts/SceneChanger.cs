@@ -11,7 +11,7 @@ public class SceneChanger : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("SavedMenu", SceneManager.GetActiveScene().buildIndex);
+        SaveScene();
         //LoadScene(SceneManager.GetActiveScene().name);
     }
     void Start()
@@ -44,8 +44,11 @@ public class SceneChanger : MonoBehaviour
             sceneHistory.RemoveAt(sceneHistory.Count - 1);
             SceneManager.LoadScene(sceneHistory[sceneHistory.Count - 1]);
         }
-
-        
+    }
+    public void SaveScene()
+    {
+        Debug.Log("Save main menu");
+        PlayerPrefs.SetInt("SavedMenu", SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ReturnToMainMenu()
