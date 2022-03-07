@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0600ef15b29c54889b181f7b916b3968, type: 3}
+  m_Name: MechMissle
+  m_EditorClassIdentifier: 
+  spellMesh: {fileID: 6813343884754423176, guid: e199f26bb25521a4c8cc8e7df86b33c5, type: 3}
+  spellName: MechMissle
+  damage: 25
+  manaCost: 5
+  forwardForce: 5
+  upwardForce: 5
+  coolDown: 15
+  timeBetweenCasts: 15
+  timeBetweenCasting: 15

@@ -7,9 +7,14 @@ public class BossController : MonoBehaviour
     // Gameplay Objects
     public UnityEngine.AI.NavMeshAgent agent;
 
+    // Player and laser components
     public Transform player, gunPointL, gunPointR;
     private Transform gunPointActive;
     private bool GunPointLisActive;
+
+    // Missile components
+    public GameObject missle;
+    public Transform missleBay;
 
     public LayerMask whatIsGround, whatIsPlayer;
     RaycastHit hit;
@@ -51,7 +56,6 @@ public class BossController : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) Chasing();
         if (playerInSightRange && playerInAttackRange) Attacking();
-
     }
 
     private void Patroling()
@@ -100,31 +104,42 @@ public class BossController : MonoBehaviour
 
         if (!alreadyAttacked)
         {
-            // Attack code
-            GameObject currentBullet = Instantiate(projectile, gunPointActive.position, Quaternion.Euler(90, 0, 0));
-            Rigidbody rb = currentBullet.GetComponent<Rigidbody>();
-            currentBullet.transform.LookAt(player);
-            rb.AddForce(currentBullet.transform.forward * 500f, ForceMode.Impulse);
-
-        
-
-            //Change laser position
-            if (GunPointLisActive)
+            LaserAttack();
+            if (health <= (health / 2))
             {
-                gunPointActive = gunPointR;
-                GunPointLisActive = false;
+                MissleAttack();
             }
-            else
-            {
-                gunPointActive = gunPointL;
-                GunPointLisActive = true;
-            }
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
-
-            DestroyObject(currentBullet);
         }
+    }
+
+    private void LaserAttack()
+    {
+        // Attack code
+        GameObject currentBullet = Instantiate(projectile, gunPointActive.position, Quaternion.Euler(90, 0, 0));
+        Rigidbody rb = currentBullet.GetComponent<Rigidbody>();
+        currentBullet.transform.LookAt(player);
+        rb.AddForce(currentBullet.transform.forward * 500f, ForceMode.Impulse);
+
+        //Change laser position
+        if (GunPointLisActive)
+        {
+            gunPointActive = gunPointR;
+            GunPointLisActive = false;
+        }
+        else
+        {
+            gunPointActive = gunPointL;
+            GunPointLisActive = true;
+        }
+
+        alreadyAttacked = true;
+        Invoke(nameof(ResetAttack), timeBetweenAttacks);
+
+        DestroyObject(currentBullet);
+    }
+    private void MissleAttack()
+    {
+
     }
 
     private void ResetAttack()
