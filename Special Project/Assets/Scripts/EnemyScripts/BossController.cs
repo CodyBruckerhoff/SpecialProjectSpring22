@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
@@ -28,14 +29,25 @@ public class BossController : MonoBehaviour
     public float walkPointRange;
 
     //Attacking
-    public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    public float timeBetweenAttacks, timeBetweenMissleAttacks;
+    bool alreadyAttacked, alreadyMissleAttack;
     public GameObject projectile;
-    public float health;
+    public GameObject rocketProjectile;
+
+    //UI and Health elements
+    [SerializeField] private Slider slider;
+    [SerializeField] private float healthTotal;
+    private float health;
 
     //States
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
+
+    //Scene Elements
+    //Scene Elements
+    public SceneChanger sceneChanger;
+    private GameObject[] DontDestroyOnLoadObjects;
+
 
     private void Awake()
     {
@@ -44,7 +56,10 @@ public class BossController : MonoBehaviour
         gunPointActive = gunPointL;
         GunPointLisActive = true;
         head = GameObject.Find("Mech Head").transform;
-        //spell = projectile.GetComponent<CollisionDetection>().spell;
+        health = healthTotal;
+
+        DontDestroyOnLoadObjects = GetDontDestroyOnLoadObjects();
+        sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
     }
 
     private void Update()
@@ -56,7 +71,10 @@ public class BossController : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) Chasing();
         if (playerInSightRange && playerInAttackRange) Attacking();
+
+        slider.value = (health / healthTotal);
     }
+
 
     private void Patroling()
     {
@@ -105,7 +123,7 @@ public class BossController : MonoBehaviour
         if (!alreadyAttacked)
         {
             LaserAttack();
-            if (health <= (health / 2))
+            if (health <= (healthTotal/2) && !alreadyMissleAttack)
             {
                 MissleAttack();
             }
@@ -139,20 +157,32 @@ public class BossController : MonoBehaviour
     }
     private void MissleAttack()
     {
-
+        Instantiate(rocketProjectile, missleBay.position, Quaternion.Euler(0, 90, 0));
+        alreadyMissleAttack = true;
+        Invoke(nameof(ResetRocketAttack), timeBetweenMissleAttacks);
     }
 
     private void ResetAttack()
     {
         alreadyAttacked = false;
     }
+    private void ResetRocketAttack()
+    {
+        alreadyMissleAttack = false;
+    }
 
     public void TakeDamage(float damage)
     {
         health -= damage;
 
+
+
         if (health <= 0)
+        {
+
+            sceneChanger.LoadScene("Level2");
             Invoke(nameof(DestroyEnemy), .5f);
+        }
     }
 
     private void DestroyEnemy()
@@ -164,5 +194,25 @@ public class BossController : MonoBehaviour
     {
         var destroyTime = 5;
         Destroy(projectile, destroyTime);
+    }
+
+    public static GameObject[] GetDontDestroyOnLoadObjects()
+    {
+        GameObject temp = null;
+        try
+        {
+            temp = new GameObject();
+            Object.DontDestroyOnLoad(temp);
+            UnityEngine.SceneManagement.Scene dontDestroyOnLoad = temp.scene;
+            Object.DestroyImmediate(temp);
+            temp = null;
+
+            return dontDestroyOnLoad.GetRootGameObjects();
+        }
+        finally
+        {
+            if (temp != null)
+                Object.DestroyImmediate(temp);
+        }
     }
 }

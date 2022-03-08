@@ -9,6 +9,8 @@ public class HomingMissle : MonoBehaviour
     [SerializeField] private Transform target;
     [SerializeField] private Rigidbody targetRB;
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private int damageAmount;
+    [SerializeField] private float timer;
 
     [Header("MOVEMENT")]
     [SerializeField] private float speed = 15;
@@ -29,6 +31,16 @@ public class HomingMissle : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         targetRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
+    }
+
+    // Timer for rocket
+    private void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            DestroyProjectile();
+        }
     }
 
     // Update is called once per frame
@@ -66,5 +78,19 @@ public class HomingMissle : MonoBehaviour
 
         var rotation = Quaternion.LookRotation(heading);
         rb.MoveRotation(Quaternion.RotateTowards(transform.rotation, rotation, rotateSpeed * Time.deltaTime));
+        //transform.LookAt(target);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(damageAmount);
+            DestroyProjectile();
+        }
+    }
+
+    private void DestroyProjectile()
+    {
+        Destroy(gameObject);
     }
 }

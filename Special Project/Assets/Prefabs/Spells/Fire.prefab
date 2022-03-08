@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3996589892843765733}
   - component: {fileID: -5887317441239131702}
   - component: {fileID: 6677943790077659339}
-  m_Layer: 7
+  m_Layer: 14
   m_Name: Fire
   m_TagString: Spell
   m_Icon: {fileID: 0}
