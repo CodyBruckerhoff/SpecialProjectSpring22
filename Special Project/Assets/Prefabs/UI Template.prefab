@@ -184,8 +184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -129, y: -21}
-  m_SizeDelta: {x: 83.5416, y: 21.6}
+  m_AnchoredPosition: {x: -341.62274, y: -39.1593}
+  m_SizeDelta: {x: 225.1848, y: 48.9365}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4142476168051907947
 CanvasRenderer:
@@ -242,8 +242,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -320,8 +320,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 129.979, y: -21}
-  m_SizeDelta: {x: 250.7832, y: 28.6969}
+  m_AnchoredPosition: {x: 347, y: -40}
+  m_SizeDelta: {x: 674.9803, y: 65.6971}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4142476168523811851
 CanvasRenderer:
@@ -521,8 +521,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 129.979, y: -21}
-  m_SizeDelta: {x: 83.5416, y: 21.6}
+  m_AnchoredPosition: {x: 347, y: -40}
+  m_SizeDelta: {x: 224.8514, y: 49.4498}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4142476169735403340
 CanvasRenderer:
@@ -579,8 +579,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -657,8 +657,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -129, y: -21}
-  m_SizeDelta: {x: 250.811, y: 28.6973}
+  m_AnchoredPosition: {x: -341.62274, y: -39.1593}
+  m_SizeDelta: {x: 676.0564, y: 65.016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4142476169803270972
 CanvasRenderer:
