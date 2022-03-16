@@ -6,7 +6,7 @@ public class moveWallButton : MonoBehaviour
 {
     public GameObject walls;
     private MoveWalls moveWallScript;
-    private bool isPressed;
+    public bool isPressed;
 
     void start()
     {
