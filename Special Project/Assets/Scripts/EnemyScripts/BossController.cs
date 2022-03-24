@@ -59,7 +59,7 @@ public class BossController : MonoBehaviour
         health = healthTotal;
 
         DontDestroyOnLoadObjects = GetDontDestroyOnLoadObjects();
-        sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
+        //sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
     }
 
     private void Update()
