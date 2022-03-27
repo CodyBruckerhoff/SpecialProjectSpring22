@@ -6,6 +6,8 @@ public class TowerPower : MonoBehaviour
 {
     public float speed = 5f;
     private float x, z;
+    [SerializeField] private float health;
+    [SerializeField] private GameObject explosion;
 
 
     // Start is called before the first frame update
@@ -26,5 +28,14 @@ public class TowerPower : MonoBehaviour
         transform.Rotate(Vector3.right * speed * Time.deltaTime);
         transform.Rotate(Vector3.forward * speed * Time.deltaTime);
         //transform.RotateAround(transform.position, transform.up, Time.deltaTime * speed);
+    }
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+
+        }
     }
 }

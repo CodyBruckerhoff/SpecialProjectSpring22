@@ -7,8 +7,7 @@ public class CollisionDetection : MonoBehaviour
     public Spell spell;
     private void OnCollisionEnter(Collision collision)
     {
-        //Debug.Log("collision");
-        Debug.Log(collision.collider.name);
+        //Debug.Log(collision.collider.name);
         if (collision.collider.CompareTag("Enemy"))
         {
             Debug.Log("with enemy");
@@ -30,6 +29,11 @@ public class CollisionDetection : MonoBehaviour
         else if (collision.collider.CompareTag("Boss"))
         {
             collision.collider.gameObject.GetComponent<BossController>().TakeDamage(spell.damage);
+            DestroyProjectile();
+        }
+        else if (collision.collider.CompareTag("TowerPower"))
+        {
+            collision.collider.gameObject.GetComponent<TowerPower>().TakeDamage(spell.damage);
             DestroyProjectile();
         }
 

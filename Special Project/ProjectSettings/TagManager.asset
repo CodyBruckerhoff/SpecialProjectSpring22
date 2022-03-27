@@ -10,6 +10,7 @@ TagManager:
   - SpiderEnemy
   - Items
   - Boss
+  - TowerPower
   layers:
   - Default
   - TransparentFX
