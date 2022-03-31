@@ -14,6 +14,7 @@ public class BossController : MonoBehaviour
     private bool GunPointLisActive;
 
     // Missile components
+    public GameObject missle;
     public Transform missleBay;
 
     public LayerMask whatIsGround, whatIsPlayer;
@@ -135,7 +136,7 @@ public class BossController : MonoBehaviour
         GameObject currentBullet = Instantiate(projectile, gunPointActive.position, Quaternion.Euler(90, 0, 0));
         Rigidbody rb = currentBullet.GetComponent<Rigidbody>();
         currentBullet.transform.LookAt(player);
-        rb.AddForce(currentBullet.transform.forward * 100f, ForceMode.Impulse);
+        rb.AddForce(currentBullet.transform.forward * 500f, ForceMode.Impulse);
 
         //Change laser position
         if (GunPointLisActive)

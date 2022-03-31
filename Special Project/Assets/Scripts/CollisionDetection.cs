@@ -7,7 +7,7 @@ public class CollisionDetection : MonoBehaviour
     public Spell spell;
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.collider.name);
+        //Debug.Log(collision.collider.name);
         if (collision.collider.CompareTag("Enemy"))
         {
             Debug.Log("with enemy");
