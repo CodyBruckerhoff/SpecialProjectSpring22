@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637842965043955410
+      ticks: 637842963096282559
     m_Hash: 2778749285
   m_LockFileStatus:
     m_FilePath: C:/Users/Cybor/Documents/GitHub/SpecialProjectSpring22/Special Project/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637842965043965416
+      ticks: 637842963096282559
     m_Hash: 2483474636
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -3702,7 +3702,6 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.4
         - 1.2.5
-        - 1.2.6
         compatible:
         - 0.0.12-preview.2
         - 0.0.12-preview.5
@@ -3720,8 +3719,7 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.4
         - 1.2.5
-        - 1.2.6
-        verified: 1.2.6
+        verified: 1.2.5
       dependencies: []
       resolvedDependencies: []
       keywords:
