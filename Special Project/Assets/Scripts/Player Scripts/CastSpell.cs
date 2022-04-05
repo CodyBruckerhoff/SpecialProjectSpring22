@@ -9,6 +9,7 @@ public class CastSpell : MonoBehaviour
 
     public Spell[] spell;
     private int index;
+    public GameObject spellEffects;
 
     public Camera playerCam;
     public Transform attackPoint;
@@ -39,9 +40,9 @@ public class CastSpell : MonoBehaviour
         castSpell();
         changeSpell();
 
-        if (manaDisplay != null)
+        if (manaDisplay.text != null)
         {
-            manaDisplay.SetText(currentMana + " / " + manaTotal);
+            manaDisplay.text = (currentMana + " / " + manaTotal);
             slider.value = (currentMana / manaTotal);
         }
 
@@ -131,6 +132,7 @@ public class CastSpell : MonoBehaviour
 
         // Instantion projectile
         GameObject currentSpell = Instantiate(spell[index].spellMesh, attackPoint.position, Quaternion.identity);
+        //Instantiate(spellEffects, attackPoint.position, Quaternion.identity);
 
         // Rotate spell to shoot direction
         currentSpell.transform.forward = directionWithoutSpread.normalized;
