@@ -16,7 +16,7 @@ public class ManaItemManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         castSpell = player.GetComponent<CastSpell>();
     }
 

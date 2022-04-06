@@ -8,9 +8,10 @@ using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
     //Gameplay Values
-    [SerializeField] private float playerHealthTotal;
-    [SerializeField] private float playerArmor;
-    [SerializeField] private float playerHealthCurrent;
+    public float playerHealthTotal;
+    public float playerArmor;
+    public float playerHealthCurrent;
+    public float playerHealthRegen;
 
     //UI Elements
     [SerializeField] private TextMeshProUGUI healthDisplay;
