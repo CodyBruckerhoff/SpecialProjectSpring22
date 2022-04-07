@@ -6,12 +6,18 @@ public class TowerPower : MonoBehaviour
 {
     public float speed = 5f;
     private float x, z;
+    public float HealthCurrent;
+    [SerializeField] private float healthTotal;
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private float XCoords;
+    [SerializeField] private float YCoords;
+    [SerializeField] private float ZCoords;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        HealthCurrent = healthTotal;
     }
 
     // Update is called once per frame
@@ -26,5 +32,18 @@ public class TowerPower : MonoBehaviour
         transform.Rotate(Vector3.right * speed * Time.deltaTime);
         transform.Rotate(Vector3.forward * speed * Time.deltaTime);
         //transform.RotateAround(transform.position, transform.up, Time.deltaTime * speed);
+    }
+
+    public void TakeDamage(float damage)
+    {
+
+        HealthCurrent -= damage;
+
+        if (HealthCurrent <= 0)
+        {
+            Instantiate(explosion, new Vector3(XCoords, YCoords, ZCoords), Quaternion.identity);
+            Destroy(gameObject);
+        }
+            
     }
 }

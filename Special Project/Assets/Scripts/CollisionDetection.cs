@@ -32,6 +32,11 @@ public class CollisionDetection : MonoBehaviour
             collision.collider.gameObject.GetComponent<BossController>().TakeDamage(spell.damage);
             DestroyProjectile();
         }
+        else if (collision.collider.CompareTag("Tower"))
+        {
+            collision.collider.gameObject.GetComponent<TowerPower>().TakeDamage(spell.damage);
+            DestroyProjectile();
+        }
 
     }
 
