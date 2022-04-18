@@ -26,6 +26,10 @@ public class EnemyController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    //Animation Controller
+    [SerializeField] private Animator animator;
+    private bool isDead = false;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
@@ -46,6 +50,8 @@ public class EnemyController : MonoBehaviour
 
     private void Patroling()
     {
+        animator.SetBool("PlayerInSightRange", false);
+        animator.SetBool("PlayerInAttackRange", false);
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -71,18 +77,29 @@ public class EnemyController : MonoBehaviour
 
     private void Chasing()
     {
-        agent.SetDestination(player.position);
+        animator.SetBool("PlayerInSightRange", true);
+        animator.SetBool("PlayerInAttackRange", false);
+        if (!isDead)
+            agent.SetDestination(player.position);
     }
 
     private void Attacking()
     {
+        animator.SetBool("PlayerInSightRange", true);
+        animator.SetBool("PlayerInAttackRange", true);
         //Stop enemy movement
-        agent.SetDestination(transform.position);
+
+        if (!isDead)
+            agent.SetDestination(transform.position);
 
         Vector3 targetPosition = new Vector3(player.position.x, this.transform.position.y, player.position.z);
 
         this.transform.LookAt(targetPosition);
 
+    }
+
+    private void CreatBullet()
+    { 
         if (!alreadyAttacked)
         {
             // Attack code
@@ -108,7 +125,18 @@ public class EnemyController : MonoBehaviour
         health -= damage;
 
         if (health <= 0)
-            Invoke(nameof(DestroyEnemy), .5f);
+        {
+            isDead = true;
+            Collider temp = GetComponent<Collider>();
+            agent.enabled = !agent.enabled;
+            temp.enabled = !temp.enabled;
+            animator.SetTrigger("isDead");
+            Invoke(nameof(DestroyEnemy), 3f);
+        }
+    }
+    private void healthCheck()
+    {
+
     }
 
     private void DestroyEnemy()

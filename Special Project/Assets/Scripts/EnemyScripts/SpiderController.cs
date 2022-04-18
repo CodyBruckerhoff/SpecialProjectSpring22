@@ -25,10 +25,15 @@ public class SpiderController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    //Animation
+    private Animator animator;
+    private bool isDead = false;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -45,9 +50,10 @@ public class SpiderController : MonoBehaviour
 
     private void Patroling()
     {
+        animator.SetBool("IsMoving", true);
         if (!walkPointSet) SearchWalkPoint();
 
-        if (walkPointSet)
+        if (walkPointSet && !isDead)
             agent.SetDestination(walkPoint);
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
@@ -73,7 +79,8 @@ public class SpiderController : MonoBehaviour
     {
 
         //agent.speed = 3;
-        agent.SetDestination(player.position);
+        if (!isDead)
+            agent.SetDestination(player.position);
     }
 
     private void Attacking()
@@ -98,6 +105,7 @@ public class SpiderController : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
+            animator.SetTrigger("Attack");
             collision.collider.gameObject.GetComponent<PlayerHealth>().TakeDamage(10f);
         }
     }
@@ -110,10 +118,16 @@ public class SpiderController : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        animator.SetTrigger("Hit");
         health -= damage;
 
         if (health <= 0)
-            Invoke(nameof(DestroyEnemy), .5f);
+        {
+            agent.Stop();
+            isDead = true;
+            animator.SetBool("IsDead", true);
+            Invoke(nameof(DestroyEnemy), 3f);
+        }
     }
 
     private void DestroyEnemy()

@@ -12,7 +12,7 @@ GameObject:
   m_Layer: 10
   m_Name: FirePoint
   m_TagString: Untagged
-  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2793039076413470469}
   - component: {fileID: 2793039076413470468}
   - component: {fileID: 2793039076413470475}
+  - component: {fileID: 1260830692}
   m_Layer: 10
   m_Name: ZombieRobot
   m_TagString: Enemy
@@ -95,6 +96,7 @@ MonoBehaviour:
   attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
+  animator: {fileID: 1260830692}
 --- !u!195 &2793039076413470468
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -131,6 +133,25 @@ CapsuleCollider:
   m_Height: 1.9101216
   m_Direction: 1
   m_Center: {x: 0, y: 0.9358842, z: 0}
+--- !u!95 &1260830692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2793039076413470474}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 535511bb156e7f54f83f305d96a1c4ce, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0a349fdb21ce8734ca27ad62ac34ba56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2793039074908604361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,7 +531,8 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5bfae0fb4183d0946962f5ab68bdcf31, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9500000, guid: 535511bb156e7f54f83f305d96a1c4ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 535511bb156e7f54f83f305d96a1c4ce, type: 3}
 --- !u!4 &2793039074908216629 stripped
 Transform:
