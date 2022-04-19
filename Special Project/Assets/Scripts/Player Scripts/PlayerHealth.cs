@@ -13,6 +13,10 @@ public class PlayerHealth : MonoBehaviour
     public float playerHealthCurrent;
     public float playerHealthRegen;
 
+    // Health Regen System
+    private float regenTimer;
+    [SerializeField] private float regenTimerStart;
+
     //UI Elements
     [SerializeField] private TextMeshProUGUI healthDisplay;
     public Slider slider;
@@ -37,10 +41,17 @@ public class PlayerHealth : MonoBehaviour
             healthDisplay.SetText(playerHealthCurrent + " / " + playerHealthTotal);
             slider.value = (playerHealthCurrent / playerHealthTotal);
         }
+        regenTimer -= Time.deltaTime;
+    }
+    private void FixedUpdate()
+    {
+        if (regenTimer <= 0 && playerHealthCurrent < playerHealthTotal)
+            RegendHealth();
     }
 
     public void TakeDamage(float damage)
     {
+        regenTimer = regenTimerStart;
         float resistance = 1 - (damage / 100);
 
         playerHealthCurrent -= damage * resistance;
@@ -49,9 +60,11 @@ public class PlayerHealth : MonoBehaviour
             Invoke(nameof(GameOver), .5f);
     }
 
-    public void RegendHealth(float health)
+    public void RegendHealth()
     {
-
+        playerHealthCurrent += playerHealthRegen;
+        if (playerHealthCurrent > playerHealthTotal)
+            playerHealthCurrent = playerHealthTotal;
     }
 
     private void GameOver()
