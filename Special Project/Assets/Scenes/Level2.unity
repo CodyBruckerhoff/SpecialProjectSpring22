@@ -1219,6 +1219,7 @@ MonoBehaviour:
   XCoords: 211.4477
   YCoords: 294.97
   ZCoords: 101.3164
+  isActive: 0
 --- !u!65 &315078692
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2051,6 +2052,7 @@ MonoBehaviour:
   XCoords: 948.1477
   YCoords: 374.1784
   ZCoords: 16.61646
+  isActive: 0
 --- !u!65 &604780039
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2859,6 +2861,7 @@ GameObject:
   - component: {fileID: 700257416}
   - component: {fileID: 700257415}
   - component: {fileID: 700257414}
+  - component: {fileID: 700257419}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Untagged
@@ -7822,12 +7825,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700257413}
   m_LocalRotation: {x: -0.47139165, y: -0, z: -0, w: 0.881924}
-  m_LocalPosition: {x: 324.8, y: 241.79845, z: 816.7}
-  m_LocalScale: {x: 46, y: 46, z: 46}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 2021452548}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -56.249, y: 0, z: 0}
+--- !u!114 &700257419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700257413}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfdad0ea6e0a0e469eca4819c65e3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower1IsActive: 0
+  tower2IsActive: 0
+  tower3IsActive: 0
+  tower4IsActive: 0
+  towerPower1: {fileID: 1852364717}
+  towerPower2: {fileID: 961093325}
+  towerPower3: {fileID: 604780038}
+  towerPower4: {fileID: 315078691}
 --- !u!1 &737235682
 GameObject:
   m_ObjectHideFlags: 0
@@ -8189,6 +8212,7 @@ MonoBehaviour:
   XCoords: 198.5477
   YCoords: 294.37
   ZCoords: 866.9164
+  isActive: 0
 --- !u!65 &961093326
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10158,7 +10182,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19164
+  m_Name: pb_Mesh41742
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -11446,6 +11470,7 @@ MonoBehaviour:
   XCoords: 794.5476
   YCoords: 296.5
   ZCoords: 676.1164
+  isActive: 0
 --- !u!65 &1852364718
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11965,6 +11990,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69c870cb7332df142a825c1b798b659e, type: 3}
+--- !u!1 &2021452546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2021452548}
+  - component: {fileID: 2021452547}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2021452547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021452546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cfdad0ea6e0a0e469eca4819c65e3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower1IsActive: 0
+  tower2IsActive: 0
+  tower3IsActive: 0
+  tower4IsActive: 0
+  towerPower1: {fileID: 1852364717}
+  towerPower2: {fileID: 961093325}
+  towerPower3: {fileID: 604780038}
+  towerPower4: {fileID: 315078691}
+--- !u!4 &2021452548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021452546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 324.8, y: 242.67, z: 820.35}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_Children:
+  - {fileID: 700257418}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2035635991
 PrefabInstance:
   m_ObjectHideFlags: 0

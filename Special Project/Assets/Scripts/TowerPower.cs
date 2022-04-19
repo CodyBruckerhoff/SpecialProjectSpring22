@@ -12,11 +12,13 @@ public class TowerPower : MonoBehaviour
     [SerializeField] private float XCoords;
     [SerializeField] private float YCoords;
     [SerializeField] private float ZCoords;
+    public bool isActive;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        isActive = true;
         HealthCurrent = healthTotal;
     }
 
@@ -36,11 +38,11 @@ public class TowerPower : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
         HealthCurrent -= damage;
 
         if (HealthCurrent <= 0)
         {
+            isActive = false;
             Instantiate(explosion, new Vector3(XCoords, YCoords, ZCoords), Quaternion.identity);
             Destroy(gameObject);
         }
