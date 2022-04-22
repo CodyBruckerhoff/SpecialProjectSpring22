@@ -67,7 +67,6 @@ MonoBehaviour:
   targetRB: {fileID: 0}
   explosionPrefab: {fileID: 0}
   damageAmount: 20
-  timer: 15
   speed: 25
   rotateSpeed: 95
   maxDistancePredict: 100
@@ -75,6 +74,8 @@ MonoBehaviour:
   maxTimePrediction: 5
   deviationAmount: 50
   deviationSpeed: 2
+  countdown: 10
+  timer: 15
 --- !u!136 &1543392996
 CapsuleCollider:
   m_ObjectHideFlags: 0

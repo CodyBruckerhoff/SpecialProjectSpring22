@@ -9,6 +9,8 @@ public class SceneChanger : MonoBehaviour
     public List<string> sceneHistory = new List<string>();  //running history of scenes
                                                             //The last string in the list is always the current scene running
 
+
+
     private void Awake()
     {
         SaveScene();

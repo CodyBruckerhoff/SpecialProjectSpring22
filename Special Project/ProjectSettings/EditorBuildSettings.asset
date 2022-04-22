@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TerrainTester.unity
     guid: ecbec6906f80a4adb8b4b8b47934bbfe
+  - enabled: 1
+    path: Assets/Scenes/Final Level.unity
+    guid: eaa264f20d34a46e1a1045f5b2e15065
   m_configObjects: {}

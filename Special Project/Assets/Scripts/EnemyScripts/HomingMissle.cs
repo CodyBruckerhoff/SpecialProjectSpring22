@@ -10,7 +10,6 @@ public class HomingMissle : MonoBehaviour
     [SerializeField] private Rigidbody targetRB;
     [SerializeField] private GameObject explosionPrefab;
     [SerializeField] private int damageAmount;
-    [SerializeField] private float timer;
 
     [Header("MOVEMENT")]
     [SerializeField] private float speed = 15;
@@ -25,12 +24,19 @@ public class HomingMissle : MonoBehaviour
     [Header("DEVIATION")]
     [SerializeField] private float deviationAmount = 50;
     [SerializeField] private float deviationSpeed = 2;
+
+
+    [Header("Timing")]
+    [SerializeField] private float countdown;
+    [SerializeField] private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         targetRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
+        timer = countdown;
     }
 
     // Timer for rocket

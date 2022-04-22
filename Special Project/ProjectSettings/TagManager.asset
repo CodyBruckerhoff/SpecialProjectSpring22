@@ -11,6 +11,7 @@ TagManager:
   - Items
   - Boss
   - Tower
+  - SceneManager
   layers:
   - Default
   - TransparentFX

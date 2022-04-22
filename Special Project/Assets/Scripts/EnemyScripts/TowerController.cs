@@ -26,6 +26,17 @@ public class TowerController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    //Power Tower System and Interface
+    [Header("Linkage to power supply towers")]
+    [SerializeField] private bool tower1IsActive;
+    [SerializeField] private bool tower2IsActive;
+    [SerializeField] private bool tower3IsActive;
+    [SerializeField] private bool tower4IsActive;
+    [SerializeField] private TowerPower towerPower1;
+    [SerializeField] private TowerPower towerPower2;
+    [SerializeField] private TowerPower towerPower3;
+    [SerializeField] private TowerPower towerPower4;
+
     private void Awake()
     {
         gunPointActive = gunPointL;
@@ -40,8 +51,14 @@ public class TowerController : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (playerInSightRange && !playerInAttackRange) Chasing();
-        if (playerInSightRange && playerInAttackRange) Attacking();
+
+        tower1IsActive = towerPower1.isActive;
+        tower2IsActive = towerPower2.isActive;
+        tower3IsActive = towerPower3.isActive;
+        tower4IsActive = towerPower4.isActive;
+
+        if (tower1IsActive && tower2IsActive && tower3IsActive && tower4IsActive && playerInSightRange && !playerInAttackRange) Chasing();
+        if (tower1IsActive && tower2IsActive && tower3IsActive && tower4IsActive && playerInSightRange && playerInAttackRange) Attacking();
 
     }
 
