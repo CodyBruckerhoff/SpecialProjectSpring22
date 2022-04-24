@@ -112,6 +112,8 @@ public class CastSpell : MonoBehaviour
         //Debug.Log("Casting " + spell[index].name);
         readyToShoot = false;
 
+        FindObjectOfType<AudioManager>().Play("Fire");
+
         // Find target point of projectile
         Ray ray = playerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;

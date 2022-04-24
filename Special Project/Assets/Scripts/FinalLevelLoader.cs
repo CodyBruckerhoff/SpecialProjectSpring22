@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FinalLevelLoader : MonoBehaviour
 {
+    [SerializeField] private string sceneName;
     [SerializeField] private SceneChanger sceneChanger;
     private GameObject[] DontDestroyOnLoadObjects;
 
@@ -17,7 +18,7 @@ public class FinalLevelLoader : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-           sceneChanger.LoadScene("Final Level");
+           sceneChanger.LoadScene(sceneName);
     }
 
     public static GameObject[] GetDontDestroyOnLoadObjects()

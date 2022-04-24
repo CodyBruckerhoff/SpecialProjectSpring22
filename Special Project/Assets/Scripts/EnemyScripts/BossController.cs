@@ -43,11 +43,6 @@ public class BossController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
-    //Scene Elements
-    //Scene Elements
-    public SceneChanger sceneChanger;
-    private GameObject[] DontDestroyOnLoadObjects;
-
 
     private void Awake()
     {
@@ -57,9 +52,6 @@ public class BossController : MonoBehaviour
         GunPointLisActive = true;
         head = GameObject.Find("Mech Head").transform;
         health = healthTotal;
-
-        DontDestroyOnLoadObjects = GetDontDestroyOnLoadObjects();
-        //sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
     }
 
     private void Update()
@@ -179,8 +171,6 @@ public class BossController : MonoBehaviour
 
         if (health <= 0)
         {
-
-            sceneChanger.LoadScene("Level2");
             Invoke(nameof(DestroyEnemy), .5f);
         }
     }

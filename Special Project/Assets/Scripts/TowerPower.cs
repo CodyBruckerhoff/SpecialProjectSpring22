@@ -14,6 +14,9 @@ public class TowerPower : MonoBehaviour
     [SerializeField] private float ZCoords;
     public bool isActive;
 
+    // Sounds
+    [SerializeField] private AudioClip boomSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,7 @@ public class TowerPower : MonoBehaviour
 
         if (HealthCurrent <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("Explosion");
             isActive = false;
             Instantiate(explosion, new Vector3(XCoords, YCoords, ZCoords), Quaternion.identity);
             Destroy(gameObject);

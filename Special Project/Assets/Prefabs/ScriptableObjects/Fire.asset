@@ -18,6 +18,6 @@ MonoBehaviour:
   manaCost: 2
   forwardForce: 50
   upwardForce: 1
-  coolDown: 0.1
-  timeBetweenCasts: 0.1
-  timeBetweenCasting: 0.1
+  coolDown: 1
+  timeBetweenCasts: 0.7
+  timeBetweenCasting: 0.7
