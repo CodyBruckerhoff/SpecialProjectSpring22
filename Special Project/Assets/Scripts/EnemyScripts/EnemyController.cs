@@ -29,6 +29,8 @@ public class EnemyController : MonoBehaviour
     //Animation Controller
     [SerializeField] private Animator animator;
     private bool isDead = false;
+    [SerializeField] private GameObject mesh;
+    private bool oneTime = true;
 
     private void Awake()
     {
@@ -37,13 +39,37 @@ public class EnemyController : MonoBehaviour
     }
 
     private void Update()
-    {
+    { 
         // Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) Chasing();
+        if (!playerInSightRange && !playerInAttackRange)
+        {
+            Patroling();
+            oneTime = true;
+        }
+
+        if (playerInSightRange && !playerInAttackRange)
+        {
+            Chasing();
+            if (oneTime)
+            {
+
+                int temp = Random.RandomRange(0, 5);
+
+                if (temp == 0)
+                    FindObjectOfType<AudioManager>().Play("Blast Him");
+                else if (temp == 1)
+                    FindObjectOfType<AudioManager>().Play("I think I see him");
+                else if (temp == 2)
+                    FindObjectOfType<AudioManager>().Play("Within our sights");
+                else if (temp == 3)
+                    FindObjectOfType<AudioManager>().Play("Right over there");
+                oneTime = false;
+            }
+
+        }
         if (playerInSightRange && playerInAttackRange) Attacking();
 
     }
@@ -95,7 +121,6 @@ public class EnemyController : MonoBehaviour
         Vector3 targetPosition = new Vector3(player.position.x, this.transform.position.y, player.position.z);
 
         this.transform.LookAt(targetPosition);
-
     }
 
     private void CreatBullet()
@@ -105,6 +130,7 @@ public class EnemyController : MonoBehaviour
             // Attack code
             GameObject currentBullet = Instantiate(projectile, gunPoint.position, Quaternion.identity);
             Rigidbody rb = currentBullet.GetComponent<Rigidbody>();
+            FindObjectOfType<AudioManager>().Play("Laser");
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             //
 
