@@ -150,6 +150,15 @@ public class EnemyController : MonoBehaviour
     {
         health -= damage;
 
+
+
+        int tempInt = Random.RandomRange(0, 4);
+
+        if (tempInt == 0)
+            FindObjectOfType<AudioManager>().Play("AH");
+        else if (tempInt == 1)
+            FindObjectOfType<AudioManager>().Play("They Hit me");
+
         if (health <= 0)
         {
             isDead = true;

@@ -43,10 +43,12 @@ public class BossController : MonoBehaviour
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
 
+    private bool playOnce;
+
 
     private void Awake()
     {
-        //player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player").transform;
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         gunPointActive = gunPointL;
         GunPointLisActive = true;
@@ -63,8 +65,6 @@ public class BossController : MonoBehaviour
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) Chasing();
         if (playerInSightRange && playerInAttackRange) Attacking();
-
-        slider.value = (health / healthTotal);
     }
 
 
@@ -97,6 +97,11 @@ public class BossController : MonoBehaviour
     {
         agent.SetDestination(player.position);
         head.transform.LookAt(player);
+        if (playOnce)
+        {
+            FindObjectOfType<AudioManager>().Play("Mech Step");
+            playOnce = false;
+        }
     }
 
     private void Attacking()
@@ -124,6 +129,8 @@ public class BossController : MonoBehaviour
 
     private void LaserAttack()
     {
+
+        FindObjectOfType<AudioManager>().Play("Mech Laser");
         // Attack code
         GameObject currentBullet = Instantiate(projectile, gunPointActive.position, Quaternion.Euler(90, 0, 0));
         Rigidbody rb = currentBullet.GetComponent<Rigidbody>();

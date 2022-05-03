@@ -29,11 +29,15 @@ public class SpiderController : MonoBehaviour
     private Animator animator;
     private bool isDead = false;
 
+    private bool playOnce = true;
+    private AudioSource walk;
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        walk = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -50,6 +54,8 @@ public class SpiderController : MonoBehaviour
 
     private void Patroling()
     {
+        walk.Stop();
+        playOnce = true;
         animator.SetBool("IsMoving", true);
         if (!walkPointSet) SearchWalkPoint();
 
@@ -77,7 +83,11 @@ public class SpiderController : MonoBehaviour
 
     private void Chasing()
     {
-
+        if (playOnce)
+        {
+            walk.Play();
+            playOnce = false;
+        }
         //agent.speed = 3;
         if (!isDead)
             agent.SetDestination(player.position);
@@ -123,6 +133,7 @@ public class SpiderController : MonoBehaviour
 
         if (health <= 0)
         {
+            walk.Stop();
             agent.Stop();
             isDead = true;
             animator.SetBool("IsDead", true);

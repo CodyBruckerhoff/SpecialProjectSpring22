@@ -176,7 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
       propertyPath: sounds.Array.size
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
       propertyPath: sounds.Array.data[2].clip
@@ -243,6 +243,46 @@ PrefabInstance:
       value: Laser
       objectReference: {fileID: 0}
     - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[0].pitch
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[10].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cb6e997aff4b7480da5be897d272e7ac, type: 3}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[10].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[10].name
+      value: Spider
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[11].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: df46987f34c444ff7b52b9b944a207f4, type: 3}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[11].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[11].name
+      value: Mech Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[12].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 120868bbc9cf04b928920d4410c9ce6a, type: 3}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[12].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[12].name
+      value: Mech Step
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
       propertyPath: sounds.Array.data[2].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -272,6 +312,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
       propertyPath: sounds.Array.data[9].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.172
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[10].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[11].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[12].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
@@ -305,6 +361,18 @@ PrefabInstance:
     - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
       propertyPath: sounds.Array.data[9].volume
       value: 0.834
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[10].volume
+      value: 0.259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[11].volume
+      value: 0.171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898810913171985105, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
+      propertyPath: sounds.Array.data[12].volume
+      value: 0.151
       objectReference: {fileID: 0}
     - target: {fileID: 4898810913171985106, guid: c2aa0dddecda3412cbf1c018772d8441, type: 3}
       propertyPath: m_Name
@@ -7033,7 +7101,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36486
+  m_Name: pb_Mesh19544
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -26952,7 +27020,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36386
+  m_Name: pb_Mesh19442
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -30839,6 +30907,23 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1149227292 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4142476169870071707, guid: 5d07bcbade8a5004da94e975ce728e67, type: 3}
+  m_PrefabInstance: {fileID: 1837454010}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1149227294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149227292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1d5b7205ab084d098f1be6267878c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1182292076
 GameObject:
   m_ObjectHideFlags: 0
@@ -30881,7 +30966,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36078
+  m_Name: pb_Mesh19134
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -31813,7 +31898,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh36148
+  m_Name: pb_Mesh19204
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -73555,6 +73640,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1132087713}
     - target: {fileID: 8407094651109934634, guid: 3750917e1685ff548ade76c4815d156d, type: 3}
+      propertyPath: sightRange
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8407094651109934634, guid: 3750917e1685ff548ade76c4815d156d, type: 3}
       propertyPath: healthTotal
       value: 300
       objectReference: {fileID: 0}
@@ -73562,6 +73651,10 @@ PrefabInstance:
       propertyPath: rocketProjectile
       value: 
       objectReference: {fileID: 6813343884754423176, guid: e199f26bb25521a4c8cc8e7df86b33c5, type: 3}
+    - target: {fileID: 8407094651109934634, guid: 3750917e1685ff548ade76c4815d156d, type: 3}
+      propertyPath: timeBetweenAttacks
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 8407094651109934634, guid: 3750917e1685ff548ade76c4815d156d, type: 3}
       propertyPath: timeBetweenMissleAttacks
       value: 5

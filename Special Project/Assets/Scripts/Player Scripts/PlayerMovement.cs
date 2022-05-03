@@ -66,11 +66,13 @@ public class PlayerMovement : MonoBehaviour {
         playerScale =  transform.localScale;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        DontDestroyOnLoad(this);
     }
 
     
     private void FixedUpdate() {
         Movement();
+
     }
 
     private void Update() {
