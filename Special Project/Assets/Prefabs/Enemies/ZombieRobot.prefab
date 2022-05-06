@@ -91,13 +91,14 @@ MonoBehaviour:
   walkPointRange: 10
   timeBetweenAttacks: 1
   projectile: {fileID: 9044611813787490380, guid: d8fef6560f1b144b09f7d8a16f0f7799, type: 3}
-  health: 120
+  health: 50
   sightRange: 50
   attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
   animator: {fileID: 1260830692}
   mesh: {fileID: 2793039074908635349}
+  shouldMove: 1
 --- !u!195 &2793039076413470468
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -23,7 +23,7 @@ public class FindSceneChanger : MonoBehaviour
     private void Update()
     {
         DontDestroyOnLoadObjects = GetDontDestroyOnLoadObjects();
-        sceneChanger = DontDestroyOnLoadObjects[0].GetComponent<SceneChanger>();
+        sceneChanger = ReturnObjectFromArray("SceneManager", DontDestroyOnLoadObjects).GetComponent<SceneChanger>();
         button.onClick.AddListener(sceneChanger.PreviousScene);
     }
 
@@ -45,5 +45,16 @@ public class FindSceneChanger : MonoBehaviour
             if (temp != null)
                 Object.DestroyImmediate(temp);
         }
+    }
+    public static GameObject ReturnObjectFromArray(string tag, GameObject[] array)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i].tag == tag)
+            {
+                return array[i];
+            }
+        }
+        return null;
     }
 }

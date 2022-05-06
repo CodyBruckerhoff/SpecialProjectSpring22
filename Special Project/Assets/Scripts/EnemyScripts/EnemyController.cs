@@ -31,11 +31,18 @@ public class EnemyController : MonoBehaviour
     private bool isDead = false;
     [SerializeField] private GameObject mesh;
     private bool oneTime = true;
+    [SerializeField] private bool shouldMove = true;
+
+    //Scene Loading for a boss
+    [SerializeField] private SceneChanger sceneChanger;
+    private GameObject[] DontDestroyOnLoadObjects;
 
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        DontDestroyOnLoadObjects = GetDontDestroyOnLoadObjects();
+        sceneChanger = returnObjectFromArray(DontDestroyOnLoadObjects, "SceneManager").GetComponent<SceneChanger>();
     }
 
     private void Update()
@@ -44,10 +51,16 @@ public class EnemyController : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!playerInSightRange && !playerInAttackRange)
+
+
+        if (!playerInSightRange && !playerInAttackRange && shouldMove)
         {
             Patroling();
             oneTime = true;
+        }
+        else
+        {
+            animator.SetBool("PlayerIsIdle", true);
         }
 
         if (playerInSightRange && !playerInAttackRange)
@@ -78,6 +91,7 @@ public class EnemyController : MonoBehaviour
     {
         animator.SetBool("PlayerInSightRange", false);
         animator.SetBool("PlayerInAttackRange", false);
+        animator.SetBool("PlayerIsIdle", false);
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
@@ -105,6 +119,7 @@ public class EnemyController : MonoBehaviour
     {
         animator.SetBool("PlayerInSightRange", true);
         animator.SetBool("PlayerInAttackRange", false);
+        animator.SetBool("PlayerIsIdle", false);
         if (!isDead)
             agent.SetDestination(player.position);
     }
@@ -113,6 +128,7 @@ public class EnemyController : MonoBehaviour
     {
         animator.SetBool("PlayerInSightRange", true);
         animator.SetBool("PlayerInAttackRange", true);
+        animator.SetBool("PlayerIsIdle", false);
         //Stop enemy movement
 
         if (!isDead)
@@ -161,6 +177,10 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
+            if (tag == "EnemyBoss")
+            {
+                sceneChanger.LoadScene("End Credits");
+            }
             isDead = true;
             Collider temp = GetComponent<Collider>();
             agent.enabled = !agent.enabled;
@@ -183,5 +203,37 @@ public class EnemyController : MonoBehaviour
     {
         var destroyTime = 5;
         Destroy(projectile, destroyTime);
+    }
+    public static GameObject[] GetDontDestroyOnLoadObjects()
+    {
+        GameObject temp = null;
+        try
+        {
+            temp = new GameObject();
+            Object.DontDestroyOnLoad(temp);
+            UnityEngine.SceneManagement.Scene dontDestroyOnLoad = temp.scene;
+            Object.DestroyImmediate(temp);
+            temp = null;
+
+            return dontDestroyOnLoad.GetRootGameObjects();
+        }
+        finally
+        {
+            if (temp != null)
+                Object.DestroyImmediate(temp);
+        }
+    }
+
+    public static GameObject returnObjectFromArray(GameObject[] array, string tagName)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i].gameObject.tag == tagName)
+            {
+                return array[i];
+            }
+        }
+
+        return null;
     }
 }

@@ -9,7 +9,7 @@ public class CollisionDetection : MonoBehaviour
     {
         //Debug.Log("collision");
         Debug.Log(collision.collider.name);
-        if (collision.collider.CompareTag("Enemy"))
+        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("EnemyBoss"))
         {
             Debug.Log("with enemy");
             collision.collider.gameObject.GetComponent<EnemyController>().TakeDamage(spell.damage);

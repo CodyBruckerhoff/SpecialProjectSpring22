@@ -46,8 +46,8 @@ MonoBehaviour:
   sounds:
   - name: Fire
     clip: {fileID: 8300000, guid: fafbb0895f905a3409cb972bdedc03ec, type: 3}
-    volume: 0.462
-    pitch: 0.78
+    volume: 0.172
+    pitch: 0.79
     loop: 0
     source: {fileID: 0}
   - name: Explosion
@@ -55,4 +55,70 @@ MonoBehaviour:
     volume: 0.834
     pitch: 1
     loop: 0
+    source: {fileID: 0}
+  - name: AH
+    clip: {fileID: 8300000, guid: 09b39500ba37a4bc6857e2b402fd32c5, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Blast Him
+    clip: {fileID: 8300000, guid: 44faa17c32992483881bff68a8842012, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: I think I see him
+    clip: {fileID: 8300000, guid: 866b841ad37e944e3b9f9656adb4a39c, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Right over there
+    clip: {fileID: 8300000, guid: 9735882bd77cd499188f992f5d603f39, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: They Hit me
+    clip: {fileID: 8300000, guid: 4dfcc7efaa7ef4dfc8e4ba2ea251713f, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: They're over there
+    clip: {fileID: 8300000, guid: 51db1a70695eb487ea648055b11107a1, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Within our sights
+    clip: {fileID: 8300000, guid: 37e115281375440e2bdf97b73e5bbc2a, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laser
+    clip: {fileID: 8300000, guid: 6bb609fe2fd554285a4899ef83a22538, type: 3}
+    volume: 0.834
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Spider
+    clip: {fileID: 8300000, guid: cb6e997aff4b7480da5be897d272e7ac, type: 3}
+    volume: 0.259
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Mech Laser
+    clip: {fileID: 8300000, guid: df46987f34c444ff7b52b9b944a207f4, type: 3}
+    volume: 0.171
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Mech Step
+    clip: {fileID: 8300000, guid: 120868bbc9cf04b928920d4410c9ce6a, type: 3}
+    volume: 0.151
+    pitch: 1
+    loop: 1
     source: {fileID: 0}

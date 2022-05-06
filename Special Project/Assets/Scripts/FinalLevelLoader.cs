@@ -18,7 +18,10 @@ public class FinalLevelLoader : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
-           sceneChanger.LoadScene(sceneName);
+        {
+            other.gameObject.transform.position = new Vector3(957.34f, 379.97f, 103.4f);
+            sceneChanger.LoadScene(sceneName);
+        }
     }
 
     public static GameObject[] GetDontDestroyOnLoadObjects()
